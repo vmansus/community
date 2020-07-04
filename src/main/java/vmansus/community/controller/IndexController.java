@@ -3,9 +3,7 @@ package vmansus.community.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import vmansus.community.mapper.UserMapper;
 import vmansus.community.model.User;
 
@@ -18,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class IndexController {
 
-    @Autowired
+    @Autowired(required=false)
     private UserMapper userMapper;
 
     @GetMapping("/")
