@@ -72,7 +72,7 @@ public class AuthorizeController {
                          HttpServletResponse response){
         request.getSession().removeAttribute("user");
         Cookie cookie = new Cookie("token",null);
-        cookie.setMaxAge(0);
+        cookie.setMaxAge(-1);
         response.addCookie(cookie);
         return "redirect:/";
     }

@@ -1,0 +1,37 @@
+    2020-08-10 00:05:13.015  INFO 3420 --- [restartedMain] vmansus.community.CommunityApplication   : Starting CommunityApplication on DESKTOP-OSFMTGP with PID 3420 (C:\Users\20781\IdeaProjects\community\target\classes started by 20781 in C:\Users\20781\IdeaProjects\community)
+2020-08-10 00:05:13.016  INFO 3420 --- [restartedMain] vmansus.community.CommunityApplication   : No active profile set, falling back to default profiles: default
+2020-08-10 00:05:13.625  INFO 3420 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8887 (http)
+2020-08-10 00:05:13.626  INFO 3420 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-08-10 00:05:13.626  INFO 3420 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-08-10 00:05:13.654  INFO 3420 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-08-10 00:05:13.654  INFO 3420 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 634 ms
+2020-08-10 00:05:13.669  INFO 3420 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2020-08-10 00:05:13.677  INFO 3420 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2020-08-10 00:05:13.677  INFO 3420 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:D:/community'
+2020-08-10 00:05:13.851  INFO 3420 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-10 00:05:13.866  INFO 3420 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-08-10 00:05:14.093  INFO 3420 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-08-10 00:05:14.109  INFO 3420 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8887 (http) with context path ''
+2020-08-10 00:05:14.113  INFO 3420 --- [restartedMain] vmansus.community.CommunityApplication   : Started CommunityApplication in 1.188 seconds (JVM running for 244.106)
+2020-08-10 00:05:14.115  INFO 3420 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-08-10 00:06:19.086  INFO 9732 --- [restartedMain] vmansus.community.CommunityApplication   : Starting CommunityApplication on DESKTOP-OSFMTGP with PID 9732 (C:\Users\20781\IdeaProjects\community\target\classes started by 20781 in C:\Users\20781\IdeaProjects\community)
+2020-08-10 00:06:19.099  INFO 9732 --- [restartedMain] vmansus.community.CommunityApplication   : No active profile set, falling back to default profiles: default
+2020-08-10 00:06:19.178  INFO 9732 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-08-10 00:06:19.179  INFO 9732 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-08-10 00:06:21.243  INFO 9732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8887 (http)
+2020-08-10 00:06:21.254  INFO 9732 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-08-10 00:06:21.254  INFO 9732 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-08-10 00:06:21.378  INFO 9732 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-08-10 00:06:21.379  INFO 9732 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2200 ms
+2020-08-10 00:06:21.435  INFO 9732 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-08-10 00:06:21.632  INFO 9732 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-08-10 00:06:21.642  INFO 9732 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:D:/community'
+2020-08-10 00:06:22.398  INFO 9732 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-10 00:06:22.523  INFO 9732 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-08-10 00:06:23.244  INFO 9732 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-08-10 00:06:23.332  INFO 9732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8887 (http) with context path ''
+2020-08-10 00:06:23.351  INFO 9732 --- [restartedMain] vmansus.community.CommunityApplication   : Started CommunityApplication in 4.798 seconds (JVM running for 7.013)
+2020-08-10 00:06:59.608  INFO 9732 --- [http-nio-8887-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-10 00:06:59.609  INFO 9732 --- [http-nio-8887-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-08-10 00:06:59.616  INFO 9732 --- [http-nio-8887-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2020-08-10 00:07:00.743  WARN 9732 --- [http-nio-8887-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [1,017] milliseconds.
