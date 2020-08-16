@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import vmansus.community.dto.PaginationDTO;
 import vmansus.community.dto.QuestionDTO;
 import vmansus.community.dto.QuestionQueryDTO;
+import vmansus.community.enums.SortEnum;
 import vmansus.community.exception.CustomizeErrorCode;
 import vmansus.community.exception.CustomizeException;
 import vmansus.community.mapper.QuestionExtMapper;
@@ -33,7 +34,7 @@ public class QuestionService {
     @Autowired
     private QuestionService questionService;
 
-    public PaginationDTO list(String search, String tag, Integer page, Integer size) {
+    public PaginationDTO list(String search, String tag, Integer page, Integer size, String sort) {
 
         if (StringUtils.isNotBlank(search)) {
             String[] tags = StringUtils.split(search, " ");
@@ -50,6 +51,19 @@ public class QuestionService {
         QuestionQueryDTO questionQueryDTO = new QuestionQueryDTO();
         questionQueryDTO.setSearch(search);
         questionQueryDTO.setTag(tag);
+        for (SortEnum sortEnum : SortEnum.values()) {
+            if (sortEnum.name().toLowerCase().equals(sort)) {
+                questionQueryDTO.setSort(sort);
+
+                if (sortEnum == SortEnum.HOT7) {
+                    questionQueryDTO.setTime(System.currentTimeMillis() - 1000L * 60 * 60 * 24 * 7);
+                }
+                if (sortEnum == SortEnum.HOT30) {
+                    questionQueryDTO.setTime(System.currentTimeMillis() - 1000L * 60 * 60 * 24 * 30);
+                }
+                break;
+            }
+        }
         Integer totalCount = questionExtMapper.countBySearch( questionQueryDTO);
 
         if(totalCount%size==0){

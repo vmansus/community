@@ -25,8 +25,8 @@ body {
 
 
 .media-object {
-    width: 38px;
-    height: 38px;
+    width: 43px;
+    height: 43px;
 }
 .headline {
     font-size: 21px;
@@ -240,4 +240,57 @@ body {
     background-color: #fff;
     border: 1px solid #b3b3b3;
     border-radius: 3px;
+}
+.question_info {
+    float: right;
+}
+.person {
+    background-color: #eee;
+}
+
+.person-info-image {
+    background-image: url("http://cdn.wenmrong.com/black.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 400px;
+}
+
+.person-info-main {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.person-info {
+    display: flex;
+    margin: 0 20px 24px;
+}
+
+.person-avatar {
+    margin-top: -25px;
+}
+
+.person-avatar img {
+    width: 160px;
+    height: 160px;
+}
+
+.person-content {
+    margin: 10px 30px;
+}
+.history_label_info {
+    background-color: black;
+    font-size: 11px;
+    margin-right: 1px;
+    margin-top: 8px;
+}
+.history_tag_style {
+    color: white;
+
+}
+.profile_form {
+    margin-left: 11px;
+}
+.hot_question_logo {
+    color: #E91E63;
 }

@@ -208,6 +208,18 @@ function selectTag(e) {
         }
     }
     function modify() {
-        window.location.replace("/modify")
+        window.location.replace("/modify");
+    }
+    function isImage() {
+        debugger
+        let filePath = $('input[name="head_portrait"]').val();
+        let fileFormat = filePath.substring(filePath.lastIndexOf(".")).toLowerCase();
+        if (!fileFormat.match(/.png|.jpg|.jpeg/)) {
+            alert("Please upload image");
+            return false;
+        }else {
+            return true;
+        }
+
     }
 }
