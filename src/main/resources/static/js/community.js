@@ -73,6 +73,7 @@ function collapseComments(e) {
             e.setAttribute("data-collapse", "in");
             e.classList.add("active");
         } else {
+            debugger;
             $.getJSON("/comment/" + id, function (data) {
                 $.each(data.data.reverse(), function (index, comment) {
 
@@ -122,6 +123,15 @@ function showSelectTag() {
     $("#select-tag").show();
 }
 
+function deleteQuestion(e) {
+    var questionId = e.getAttribute("data-id");
+    console.log(questionId);
+    var isDeleted = confirm("delete forever ?");
+    if (isDeleted) {
+        window.open("http://localhost:8887/" + questionId + "/delete");
+    }
+}
+
 function selectTag(e) {
     var value = e.getAttribute("data-tag");
     var previous = $("#tag").val();
@@ -131,6 +141,18 @@ function selectTag(e) {
         } else {
             $("#tag").val(value);
         }
+    }
+
+    function thumbComments(e) {
+        debugger;
+        var thumbId = e.getAttribute("id");
+        var url = e.getAttribute("data-id");
+        var tags = $("#" + thumbId).children("#thumbChildElement");
+
+        $.getJSON("/thumb/" + url, function (data) {
+            //span标签赋值用html,表单一般用val
+            tags.html(data);
+        });
     }
 
 }

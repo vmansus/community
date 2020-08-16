@@ -88,8 +88,8 @@ public class CommentService {
         }
     }
 
-    private void createNotify(Comment comment, Long receiver, String notifierName, String outerTitle, NotificationTypeEnum notificationType, Long outerId) {
-        if (receiver.equals(comment.getCommentator())) {
+    public void createNotify(Comment comment, Long receiver, String notifierName, String outerTitle, NotificationTypeEnum notificationType, Long outerId) {
+        if (receiver == comment.getCommentator() && (notificationType.getType() == 1 || notificationType.getType() == 2)) {
             return;
         }else {
             Notification notification = new Notification();
@@ -127,7 +127,7 @@ public class CommentService {
                 .andIdIn(userIds);
         List<User> users = userMapper.selectByExample(userExample);
         Map<Long, User> userMap = users.stream().collect(Collectors.toMap(user -> user.getId(), user -> user));
-        //转换comment为commentDTO
+        //转换comment为commentDTOS(单一类型转复合类型的常用方法)
         List<CommentDTO> commentDTOS = comments.stream().map(comment -> {
             CommentDTO commentDTO = new CommentDTO();
             BeanUtils.copyProperties(comment,commentDTO);

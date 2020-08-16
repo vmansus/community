@@ -30,8 +30,10 @@ public class QuestionService {
     private QuestionExtMapper questionExtMapper;
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private QuestionService questionService;
 
-    public PaginationDTO list(String search, Integer page, Integer size) {
+    public PaginationDTO list(String search, String tag, Integer page, Integer size) {
 
         if (StringUtils.isNotBlank(search)) {
             String[] tags = StringUtils.split(search, " ");
@@ -47,6 +49,7 @@ public class QuestionService {
         Integer totalPage;
         QuestionQueryDTO questionQueryDTO = new QuestionQueryDTO();
         questionQueryDTO.setSearch(search);
+        questionQueryDTO.setTag(tag);
         Integer totalCount = questionExtMapper.countBySearch( questionQueryDTO);
 
         if(totalCount%size==0){
@@ -110,6 +113,7 @@ public class QuestionService {
         QuestionExample example = new QuestionExample();
         example.createCriteria()
                 .andCreatorEqualTo(userId);
+        example.setOrderByClause("gmt_create desc");
         List<Question> questions = questionMapper.selectByExampleWithRowbounds(example, new RowBounds(offset, size));
         List<QuestionDTO> questionDTOList = new ArrayList<>();
 
@@ -126,6 +130,8 @@ public class QuestionService {
     }
 
     public QuestionDTO getById(Long id) {
+        //先进行计数,如果question已经查询完毕,再计数无法及时刷新数据
+        questionService.incView(id);
         Question question=questionMapper.selectByPrimaryKey(id);
         if(question==null){
             throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
@@ -134,6 +140,7 @@ public class QuestionService {
         BeanUtils.copyProperties(question, questionDTO);
         User user = userMapper.selectByPrimaryKey(question.getCreator());
         questionDTO.setUser(user);
+        questionDTO.setViewCount(question.getViewCount());
         return questionDTO;
     }
 

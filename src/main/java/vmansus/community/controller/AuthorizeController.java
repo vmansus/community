@@ -1,10 +1,12 @@
 package vmansus.community.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.support.SessionStatus;
 import vmansus.community.dto.AccessTokenDTO;
 import vmansus.community.dto.GithubUser;
 import vmansus.community.mapper.UserMapper;
@@ -15,12 +17,14 @@ import vmansus.community.service.UserService;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.UUID;
 
 /**
  *
  */
 @Controller
+@Slf4j
 public class AuthorizeController {
 
     @Autowired
@@ -62,6 +66,7 @@ public class AuthorizeController {
             response.addCookie(new Cookie("token", token));
             return "redirect:/";
         } else {
+            log.error("callback get github error,{}",githubUser);
             //登录失败,重新登录
             return "redirect:/";
         }
@@ -69,11 +74,16 @@ public class AuthorizeController {
     }
     @GetMapping("/logout")
     public String logout(HttpServletRequest request,
-                         HttpServletResponse response){
+                         HttpServletResponse response
+//                         HttpSession session,
+//                         SessionStatus sessionStatus
+    ){
         request.getSession().removeAttribute("user");
         Cookie cookie = new Cookie("token",null);
-        cookie.setMaxAge(-1);
         response.addCookie(cookie);
+        cookie.setMaxAge(0);
+//        session.invalidate();
+//        sessionStatus.setComplete();
         return "redirect:/";
     }
 }

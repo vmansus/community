@@ -136,3 +136,6 @@ body {
     padding: 10px 30% ;
     color: #666;
 }
+.btn-delete {
+    margin-left: 1px;
+}
