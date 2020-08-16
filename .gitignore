@@ -1,5 +1,6 @@
 HELP.md
 target/
+qqconnect.log
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
 !**/src/test/**
@@ -26,6 +27,7 @@ logs/
 /nbdist/
 /.nb-gradle/
 build/
+
 
 ### VS Code ###
 .vscode/

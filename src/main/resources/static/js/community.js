@@ -31,7 +31,7 @@ function comment2target(targetId, type, content) {
                 if (response.code = 2003) {
                     var isAccepted = confirm(response.message);
                     if (isAccepted) {
-                        window.open("https://github.com/login/oauth/authorize?client_id=a6234be2fb9304726971&redirect_uri=http://localhost:8887/callback&scope=user&state=1");
+                        window.location.replace("/login")
                         window.localStorage.setItem("closable", true);
                     }
                 } else {
@@ -128,7 +128,7 @@ function deleteQuestion(e) {
     console.log(questionId);
     var isDeleted = confirm("delete forever ?");
     if (isDeleted) {
-        window.open("http://localhost:8887/" + questionId + "/delete");
+        window.location.replace("/profile/questions/delete/"+questionId);
     }
 }
 
@@ -155,4 +155,59 @@ function selectTag(e) {
         });
     }
 
+    function sendActiveEmail() {
+        var email= $('input[name="email"]').val();
+        if (email == null || email.trim().length === 0) {
+            alert("请输入邮箱！");
+            return;
+        }
+        $.getJSON("/sendActiveEmail/" + email,function (data) {
+            if (data.code === 200) {
+                invokeSetTime("#send-email-btn");
+            } else {
+                alert(data.message);
+            }
+        });
+
+    }
+
+    function sendModifyEmail() {
+        var email= $('input[name="email"]').val();
+        if (email == null || email.trim().length === 0) {
+            alert("请输入邮箱！");
+            return;
+        }
+        $.getJSON("/sendModifyEmail/" + email,function (data) {
+            if (data.code === 200) {
+                invokeSetTime("#send-email-btn");
+            } else {
+                alert(data.message);
+            }
+        });
+
+    }
+
+    function invokeSetTime(obj) {
+        let countdown = 60;
+        setTime(obj);
+
+        function setTime(obj) {
+            if (countdown === 0) {
+                $(obj).attr("disabled", false);
+                $(obj).text("GetCode");
+                countdown = 60;
+                return;
+            } else {
+                $(obj).attr("disabled", true);
+                $(obj).text("(" + countdown + ") s resend");
+                countdown--;
+            }
+            setTimeout(function () {
+                setTime(obj)
+            }, 1000);
+        }
+    }
+    function modify() {
+        window.location.replace("/modify")
+    }
 }

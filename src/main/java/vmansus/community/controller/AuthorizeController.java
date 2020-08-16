@@ -63,7 +63,11 @@ public class AuthorizeController {
             user.setAccountId(String.valueOf(githubUser.getId()));
             user.setAvatarUrl(githubUser.getAvatar_url());
             userService.createOrUpdate(user);
-            response.addCookie(new Cookie("token", token));
+            //response.addCookie(new Cookie("token", token));
+            Cookie cookie = new Cookie("token", token);
+            cookie.setPath("/");
+            cookie.setMaxAge(60*60*24);
+            response.addCookie(cookie);
             return "redirect:/";
         } else {
             log.error("callback get github error,{}",githubUser);
@@ -75,15 +79,17 @@ public class AuthorizeController {
     @GetMapping("/logout")
     public String logout(HttpServletRequest request,
                          HttpServletResponse response
-//                         HttpSession session,
-//                         SessionStatus sessionStatus
     ){
         request.getSession().removeAttribute("user");
-        Cookie cookie = new Cookie("token",null);
-        response.addCookie(cookie);
-        cookie.setMaxAge(0);
-//        session.invalidate();
-//        sessionStatus.setComplete();
+        request.getSession().removeAttribute("userAccount");
+        request.getSession().removeAttribute("userInfo");
+        request.getSession().removeAttribute("unreadCount");
+        for (Cookie cookie : request.getCookies()) {
+            if (cookie.getName().equals("token") || cookie.getName().equals("history")) {
+                cookie.setMaxAge(0);
+                response.addCookie(cookie);
+            }
+        }
         return "redirect:/";
     }
 }

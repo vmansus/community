@@ -1,20 +1,39 @@
 body {
     background-color: #efefef;
+    background-image: url("https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2282656014,3971392335&fm=26&gp=0.jpg");
+
 }
 
 .main {
-    background-color: white;
-    margin: 30px;
+    margin: 40px 200px;
+    background-color: #fff;
+    box-shadow: 6px 6px 10px grey;
+    min-height: 580px;
+    border-radius: 4px;
+}
+.main a {
+    text-decoration: none;
 }
 
 .btn-publish {
     float: right;
     margin-bottom: 15px;
 }
+.dropdown {
+    margin-top: 0;
+}
+
 
 .media-object {
     width: 38px;
     height: 38px;
+}
+.headline {
+    font-size: 21px;
+}
+.profile-headline {
+    font-size: 21px;
+    margin-top: 1px;
 }
 
 .media-body {
@@ -32,9 +51,10 @@ body {
 }
 
 .community-menu {
-    font-size: 13px;
+    font-size: 16px;
     color: #999;
     margin-bottom: 15px;
+    margin-left: 26px;
 }
 
 .jumbotron {
@@ -107,6 +127,7 @@ body {
 
 .question-tag{
     margin-right: 5px;
+    background-color: #E91E63;
 }
 
 .question-related{
@@ -128,14 +149,95 @@ body {
 
 .publish-tag-tab .label-info {
     white-space: normal;
-    margin: 5px 5px;
     display: inline-block;
+    background-color: #E91E63;
+    font-size: 13px;
+    margin-right: 10px;
+    margin-top: 8px;
 }
+.label-info {
+    background-color: #E91E63;
+    font-size: 11px;
+    margin-right: 10px;
+    margin-top: 8px;
 
+}
+.answerNum {
+    margin-left: 1px;
+}
 .footer{
     padding: 10px 30% ;
     color: #666;
 }
 .btn-delete {
     margin-left: 1px;
+    font-size: 1px;
+}
+.Log-style {
+    margin-top: 15px;
+    margin-right: -90px;
+}
+.Log-style a {
+    color: #777;
+    text-decoration: none;
+}
+.question-AliLogo .question_ali_icon {
+    font-size: 25px;
+}
+.question-AliLogo {
+    margin-top: 11px;
+}
+.question-history {
+    padding: 15px;
+    margin-top: -15px;
+}
+.history-head {
+    margin-top: -1px;
+}
+.glyphicon-hourglass {
+    font-size: 17px;
+}
+.glyphicon-grain {
+    font-size: 17px;
+}
+.Log-font {
+    margin-right: 11px;
+}
+.AliLogo-box {
+    margin-top: 15px;
+    margin-right: 18px;
+}
+.AliLogo-box .navbar_ali_icon {
+    font-size: 20px ;
+}
+.AliLogo-box a {
+    color: #777;
+    text-decoration: none;
+}
+
+.page-left {
+    border-right: 1px solid #D2D2D2;
+}
+.page-right-line {
+    width: 88%;
+}
+.page-left .index_ali_icon{
+    font-size: 22px;
+}
+.top-nav {
+    padding-left: 185px;
+    padding-right: 170px;
+    margin-bottom: 0;
+}
+.community-name {
+    font-size: 25px;
+    font-style: italic;
+}
+.login-page {
+    width: 714px;
+    height: 500px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #b3b3b3;
+    border-radius: 3px;
 }
